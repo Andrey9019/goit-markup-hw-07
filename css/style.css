@@ -644,6 +644,13 @@ textarea:focus {
 .list {
   list-style: none;
 }
+.link {
+  text-decoration: none;
+  display: block;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* SECTION HEADER */
 .header {
   border-bottom: 1px solid var(--accent);
@@ -690,7 +697,6 @@ textarea:focus {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--text);
-  font-style: normal;
 }
 @media only screen and (max-width: 767px) {
   .header-address {
@@ -871,6 +877,12 @@ textarea:focus {
   margin-top: 8px;
   justify-content: center;
 }
+@media only screen and (max-width: 767px) {
+  .list-media {
+    margin-top: 48px;
+    justify-content: space-between;
+  }
+}
 .icon-media {
   width: 16px;
   height: 16px;
@@ -951,13 +963,6 @@ textarea:focus {
   letter-spacing: 0.02em;
 }
 
-.link {
-  text-decoration: none;
-  display: block;
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 .link:hover,
 .link:focus {
   color: var(--pressed-state);
@@ -1027,7 +1032,6 @@ textarea:focus {
     flex-direction: row;
     padding-left: 0;
     padding-right: 0;
-    column-gap: 0;
   }
 }
 
@@ -1151,6 +1155,11 @@ textarea:focus {
   row-gap: 48px;
   column-gap: 24px;
 }
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .portfolio-flex {
+    column-gap: 18px;
+  }
+}
 
 /* MOBILE MENU */
 
@@ -1186,10 +1195,10 @@ textarea:focus {
   position: fixed;
   top: 0;
   left: 0;
+  padding: 80px 35px 40px 40px;
   width: 100vw;
   height: 100vh;
-  padding: 32px;
-  background-color: #3f51b5;
+  background-color: #fff;
   z-index: 999;
 
   transform: translateX(100%);
@@ -1211,15 +1220,47 @@ textarea:focus {
   padding: 0;
   margin: 0;
   list-style: none;
+  margin-bottom: 284px;
+}
+
+.mobile-menu-item {
+  padding-bottom: 40px;
 }
 
 .mobile-menu .link {
   display: block;
-  padding: 10px;
-  color: #fff;
   text-decoration: none;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+
+  color: var(--dark);
+}
+.mobile-menu .link:hover.mobile-menu .link:focus {
+  color: var(--pressed-state);
 }
 .menu-hamburger {
   width: 32px;
   height: 22px;
+}
+.mobile-menu-tel {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  text-transform: capitalize;
+  color: var(--primary-brand);
+}
+.mobile-menu-mail {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  color: var(--text);
+}
+.mobile-menu-content {
+  /* display: flex; */
 }
