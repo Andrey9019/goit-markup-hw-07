@@ -52,6 +52,8 @@ p {
 }
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 a {
   text-decoration: none;
@@ -103,8 +105,6 @@ a {
   display: flex;
   align-items: center;
 }
-.heder-nav-item {
-}
 
 .header-nav-link {
   position: relative;
@@ -133,50 +133,12 @@ a {
   background-color: var(--pressed-state);
 }
 
-.active {
+.active,
+.mobile-menu .active {
   color: var(--pressed-state);
 }
 
 /* main */
-
-/* hero */
-.hero {
-  background-color: var(--dark);
-  text-align: center;
-  padding: 188px 0;
-  background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url(../images/hero/people-office.jpg);
-  height: 600px;
-  max-width: 1440px;
-  margin: 0 auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.hero-txt {
-  color: var(--light-background);
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 1.07;
-  letter-spacing: 0.02em;
-  max-width: 496px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 48px;
-}
-
-/* section3 */
-.section-doing {
-  display: flex;
-  gap: 24px;
-}
-
-.section-doing-item {
-  width: calc((100% - 48px) / 3);
-}
 
 /* Footer-input */
 
@@ -660,8 +622,16 @@ textarea:focus {
 
 .header-flex-address {
   display: flex;
-  gap: 40px;
+  row-gap: 12px;
+  column-gap: 40px;
+  flex-direction: column;
 }
+@media only screen and (min-width: 1200px) {
+  .header-flex-address {
+    flex-direction: row;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .header-flex-address {
     display: none;
@@ -670,13 +640,14 @@ textarea:focus {
 .header-flex {
   justify-content: space-between;
   display: flex;
-  gap: 40px;
   align-items: center;
   padding: 24px 16px;
 }
 @media only screen and (min-width: 768px) {
   .header-flex {
     padding: 0;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 .header-titls {
@@ -693,16 +664,59 @@ textarea:focus {
 }
 .header-address {
   font-style: normal;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--text);
+  margin-left: auto;
+}
+@media only screen and (min-width: 1200px) {
+  .header-address {
+    font-size: 16px;
+  }
 }
 @media only screen and (max-width: 767px) {
   .header-address {
     display: none;
   }
 }
+
+/* HERO */
+.hero {
+  background-color: var(--dark);
+  text-align: center;
+  padding: 188px 0;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/hero/people-office.jpg);
+  height: 600px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero-txt {
+  color: var(--light-background);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  max-width: 496px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .hero-txt {
+    font-size: 56px;
+    line-height: 1.07;
+  }
+}
+
 /* Section 2 */
 .icon-features {
   display: none;
@@ -792,6 +806,14 @@ textarea:focus {
 }
 
 /* Section 3 */
+.section-doing {
+  display: flex;
+  gap: 24px;
+}
+
+.section-doing-item {
+  width: calc((100% - 48px) / 3);
+}
 
 .section-about {
   color: var(--dark);
@@ -880,7 +902,7 @@ textarea:focus {
 @media only screen and (max-width: 767px) {
   .list-media {
     margin-top: 48px;
-    justify-content: space-between;
+    gap: 56px;
   }
 }
 .icon-media {
@@ -1034,7 +1056,11 @@ textarea:focus {
     padding-right: 0;
   }
 }
-
+@media only screen and (min-width: 1200px) {
+  .footer-display-container {
+    flex-wrap: nowrap;
+  }
+}
 .footer-form {
   display: flex;
   align-items: flex-end;
@@ -1192,6 +1218,7 @@ textarea:focus {
 }
 
 .menu-container {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -1220,14 +1247,14 @@ textarea:focus {
   padding: 0;
   margin: 0;
   list-style: none;
-  margin-bottom: 284px;
+  margin-bottom: auto;
 }
 
 .mobile-menu-item {
   padding-bottom: 40px;
 }
 
-.mobile-menu .link {
+.mobile-menu-link {
   display: block;
   text-decoration: none;
 
@@ -1239,7 +1266,9 @@ textarea:focus {
 
   color: var(--dark);
 }
-.mobile-menu .link:hover.mobile-menu .link:focus {
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus {
   color: var(--pressed-state);
 }
 .menu-hamburger {
@@ -1262,5 +1291,6 @@ textarea:focus {
   color: var(--text);
 }
 .mobile-menu-content {
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
 }
