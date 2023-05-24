@@ -68,10 +68,14 @@ a {
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  margin-right: 76px;
 
   text-decoration: none;
   display: block;
+}
+@media only screen and (min-width: 768px) {
+  .logo {
+    margin-right: 120px;
+  }
 }
 
 .logo-style-1 {
@@ -386,7 +390,7 @@ a {
 
   transform: translate(-50%, -50%);
 
-  width: 408px;
+  max-width: 408px;
 
   background-color: var(--modal-background);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -419,6 +423,32 @@ a {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.menu-container .modal-close-btn {
+  position: absolute;
+
+  min-width: 24px;
+  min-height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  padding: 0;
+  right: 24px;
+  top: 24px;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--accent);
+  fill: var(--dark);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal-close-icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -442,8 +472,6 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--dark);
-}
-.modal-form {
 }
 
 .modal-form .modal-text,
@@ -685,19 +713,85 @@ textarea:focus {
 .hero {
   background-color: var(--dark);
   text-align: center;
-  padding: 188px 0;
-  background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url(../images/hero/people-office.jpg);
-  height: 600px;
+  height: 432px;
   max-width: 1440px;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding: 112px 0;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/hero/mobile-people-office@1x.jpg);
 }
+
+@media only screen and (min-width: 768px) {
+  .hero {
+    height: 436px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .hero {
+    padding: 188px 0;
+    height: 600px;
+  }
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/hero/mobile-people-office@2x.jpg);
+  }
+}
+
+@media only screen and (min-width: 429px) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/hero/tablet-people-office@1x.jpg);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero/tablet-people-office@2x.jpg);
+    }
+  }
+}
+@media only screen and (min-width: 769px) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/hero/dekstop-people-office@1x.jpg);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero/dekstop-people-office@2x.jpg);
+    }
+  }
+}
+
 .hero-txt {
   color: var(--light-background);
   font-weight: 700;
@@ -908,12 +1002,16 @@ textarea:focus {
 @media only screen and (max-width: 767px) {
   .mobile-list-media {
     margin-top: 48px;
-    gap: 56px;
   }
 }
 .icon-media {
   width: 16px;
   height: 16px;
+  fill: currentColor;
+}
+.icon-mobile-media {
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 .icon-link {
@@ -1032,12 +1130,6 @@ textarea:focus {
   background-color: var(--dark);
   padding: 96px 0;
 }
-@media only screen and (min-width: 768px) {
-  .footer {
-    padding-right: 164px;
-    padding-left: 108px;
-  }
-}
 
 @media only screen and (min-width: 1200px) {
   .footer {
@@ -1057,14 +1149,24 @@ textarea:focus {
 }
 @media only screen and (min-width: 768px) {
   .footer-display-container {
+    display: flex;
+
     flex-direction: row;
     padding-left: 0;
     padding-right: 0;
+    max-width: 552px;
+
+    max-width: 552px;
+    flex-wrap: wrap;
+    gap: 24px;
   }
 }
+
 @media only screen and (min-width: 1200px) {
   .footer-display-container {
     flex-wrap: nowrap;
+    max-width: 1128px;
+    column-gap: 0;
   }
 }
 .footer-form {
@@ -1203,7 +1305,6 @@ textarea:focus {
   justify-content: center;
 
   margin: 0;
-  /* margin-left: auto; */
   padding: 0;
   background-color: transparent;
   cursor: pointer;
@@ -1256,8 +1357,8 @@ textarea:focus {
   margin-bottom: auto;
 }
 
-.mobile-menu-item {
-  padding-bottom: 40px;
+.mobile-menu-item:not(:last-child) {
+  margin-bottom: 40px;
 }
 
 .mobile-menu-link {
@@ -1282,12 +1383,18 @@ textarea:focus {
   height: 22px;
   stroke: var(--dark);
 }
+
 .mobile-menu-tel {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.1;
   text-transform: capitalize;
   color: var(--primary-brand);
+}
+@media only screen and (min-width: 424px) {
+  .mobile-menu-tel {
+    font-size: 36px;
+  }
 }
 .mobile-menu-mail {
   font-weight: 500;
